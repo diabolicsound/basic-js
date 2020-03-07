@@ -2,6 +2,9 @@ module.exports = function getSeason(date) {
   if (date == undefined) {
     return 'Unable to determine the time of year!';
   }
+  if (typeof(date.valueOf()) !== 'number') {
+    throw Error; 
+  };
 
  let month = date.getMonth();
  
@@ -18,3 +21,4 @@ return 'winter';
   return 'autumn';
 }
 }
+

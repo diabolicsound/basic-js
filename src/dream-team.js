@@ -10,11 +10,11 @@ for (let i = 0;  i < arr.length; i++) {
   arr2.push(arr[i].toUpperCase());
   }
 }
+for (let j = 0; j < arr2.length; j++) {
+  arr3.push(arr2[j].replace(/\s/gi,''));
+  }
 
-for (let j = 0; j < arr2.length;j++) {
-  arr2[j].replace(/\s/gi,'');
-}
-arr3 = arr2;
- return arr3.map(n => n[0]).sort().join('');
+ let upstr = arr3.map(n => n[0]).sort().join('');
+ return upstr;
 
 }
