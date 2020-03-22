@@ -1,5 +1,5 @@
 const chainMaker = {
-   chain : [],
+  chain : [],
   getLength() {
     this.chain.length = chain.length;
     return this;
@@ -10,8 +10,11 @@ const chainMaker = {
     return this;
   },
   removeLink(position) {
-      this.position = position;
-      this.chain.splice(this.position - 1, 1);
+      if (isNaN(position) == true || Number.isInteger(position) !== true || this.chain[position] == undefined || position < 0 || typeof(position) !== 'number') {
+        this.chain = [];
+        throw Error;
+      }
+      this.chain.splice(position - 1, 1);
       return this;
   },
   reverseChain() {
