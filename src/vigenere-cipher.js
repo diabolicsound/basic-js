@@ -1,4 +1,12 @@
 class VigenereCipheringMachine {
+    constructor(reverse) {
+        if (reverse == false) {
+        this.reverse = false;
+        }
+        else {
+            this.reverse = true;
+        }
+    }
     encrypt(message, key) {
     let newarr = [];
     let mesarr = message.toLowerCase().split('');
@@ -24,8 +32,8 @@ class VigenereCipheringMachine {
             newarr.push(String.fromCharCode(mesarr[j].charCodeAt() + keyarr[j].charCodeAt() - 97))
         }
     }
-        return newarr.join('').toUpperCase(); 
-    }
+        return this.reverse ? newarr.join('').toUpperCase() : newarr.reverse().join('').toUpperCase();
+}
     decrypt(message, key) {
         let newarr = [];
         let mesarr = message.toLowerCase().split('');
@@ -51,11 +59,8 @@ class VigenereCipheringMachine {
                 newarr.push(String.fromCharCode(mesarr[j].charCodeAt() - keyarr[j].charCodeAt() + 97))
             }
         }
-        console.log(newarr)
-        console.log(mesarr)
-        console.log(keyarr)
-        return newarr.join('').toUpperCase();
+        return this.reverse ? newarr.join('').toUpperCase() : newarr.reverse().join('').toUpperCase();
     }
-
 }
+
 module.exports = VigenereCipheringMachine;
